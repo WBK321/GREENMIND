@@ -8,8 +8,8 @@
         >GREENMIND</a
       >
       <a class="nav-link" href="#" id="Home">Home</a>
-      <a class="nav-link" href="#">Products</a>
-      <a class="nav-link" aria-disabled="true">Dontocts</a>
+      <a class="nav-link" href="#" id="click_1">Products</a>
+      <a class="nav-link" href="#" id="click_2">Dontocts</a>
     </nav>
   </div>
   <div class="bloc_infa">
@@ -48,7 +48,7 @@
             />
           </div>
           <div class="bloc_img_LOGO">
-            <!-- <img src="../assets/Ras.jpg" title="Направление" alt="Направление"> -->
+             <!-- <img src="../assets/Fon.jpg" title="Направление" alt="Направление"> -->
           </div>
         </div>
       </div>
@@ -69,15 +69,35 @@
   color: black;
 }
 
-#Home {
+#shop:hover{
+  transition: 0.5s;
+  color:rgb(99, 98, 98);
+}
+
+#Home{
   color: rgb(35, 35, 35);
 }
 
-a {
+#Home:hover{
+  transition: 0.5s;
+  color:rgb(99, 98, 98)
+}
+
+a{
   margin: 0px 10px 0px 10px;
   font-size: 23px;
   font-weight: 500;
-  color: rgb(99, 98, 98);
+  color: rgb(49, 48, 48)
+}
+
+#click_1:hover{
+  transition: 0.5s;
+  color:rgb(99, 98, 98)
+}
+
+#click_2:hover{
+  transition: 0.5s;
+  color:rgb(99, 98, 98)
 }
 
 .bloc_infa {
