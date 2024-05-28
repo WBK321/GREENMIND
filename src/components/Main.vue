@@ -1,70 +1,68 @@
 <script>
+import axios from 'axios';
+axios.defaults.baseURL = `http://localhost:3005`;
+
+export default {
+	data() {
+		return {
+			maps:[],
+		};
+	},
+  mounted() {
+		this.card();
+  },
+  methods: {
+  async card(){
+    let response = await axios.get(`/card`);
+    this.maps = response.data
+    }
+  },
+  
+}
+
 </script>
 
 <template>
-<div class="bloc_flex">
-  <div class="bloc_in_bloc">
-    <div class="bloc_text_main">
-      <h1 id="text_main">Best Sekling Plants</h1>
+  <div class="bloc_flex" id="Products">
+    <div class="bloc_in_bloc">
+      <div class="bloc_text_main">
+        <h1 id="text_main">Best Sekling Plants</h1>
+      </div>
+      <div class="bloc_text_pob">
+        <p class="text_pob">
+          Easist way to healthy life by buying your favorite plants
+        </p>
+      </div>
     </div>
-    <div class="bloc_text_pob">
-      <p class="text_pob">
-        Easist way to healthy life by buying your favorite plants
-      </p>
+
+    <div class="Bloc_img_card">
+      <div class="bloc_in_bloc" v-for="(card,index) in maps">
+        <div class="bloc_img_main">
+          <img :src="'src/assets/'+ card.image + '.png' "  title="" alt="" id="img_main" />
+        </div>
+        <div class="bloc_text_img">
+          <p class="text_img">{{ card.title }}</p>
+        </div>
+        <div class="bloc_number">
+          <p class="Number">$ {{ card.gold }}</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="Bloc_img_card">
-  <div class="bloc_in_bloc">
-    <div class="bloc_img_main">
-      <img src="../assets/Res3.png" title="" alt="" id="img_main" />
-    </div>
-    <div class="bloc_text_img">
-      <p class="text_img">Natural Plants</p>
-    </div>
-  <div class="bloc_number">
-    <p class="Number">1,400.00</p>
-  </div>
-  </div>
-
-  <div class="bloc_in_bloc">
-    <div class="bloc_img_main">
-      <img src="../assets/Res2.png" title="" alt="" id="img_main" />
-    </div>
-    <div class="bloc_text_img">
-      <p class="text_img">Artificial Plants</p>
-    </div>
-  <div class="bloc_number">
-    <p class="Number">900.00</p>
-  </div>
-  </div>
-
-  <div class="bloc_in_bloc">
-    <div class="bloc_img_main">
-      <img src="../assets/Res1.png" title="" alt="" id="img_main" />
-    </div>
-    <div class="bloc_text_img">
-      <p class="text_img">Artificial Plants</p>
-    </div>
-  <div class="bloc_number">
-    <p class="Number">3,500.00</p>
-  </div>
-  </div>
-  </div>
-  </div>
-
-  <div>
-
-  </div>
+  <div class="raz"></div>
 </template>
  
 <style scoped>
+.raz {
+  margin: 120px;
+}
 
-.bloc_flex{
+.bloc_flex {
   display: flex;
 }
 
-.Bloc_img_card{
+.Bloc_img_card {
   display: flex;
   margin: 0px 0px 0px 75px;
 }
@@ -93,11 +91,11 @@
   font-size: 23px;
 }
 
-.bloc_text_img{
+.bloc_text_img {
   margin: 10px 0px;
 }
 
-.text_img{
+.text_img {
   font-weight: 600;
   font-size: 23px;
   margin: 0px;
@@ -107,8 +105,9 @@
   
 } */
 
-.Number{
+.Number {
   font-size: 18px;
+  color: rgb(144, 138, 138);
 }
 
 img {
